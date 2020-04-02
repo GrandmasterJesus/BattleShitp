@@ -48,12 +48,12 @@ int main(void)
 	initLCD();
 	displayOn();
 	screenRightOn();
-	addr_Y(3);
-	addr_X(7);
+	addr_Y(43);
+	addr_X(4);
+	writeData();
     while (1)
     {
-		
-	writeData();
+	
     }
 }
 
@@ -95,6 +95,8 @@ void clkLCD(){
 	PORTC &= ~(1<<EN);
 	_delay_ms(2);
 	PORTC |= (1<<EN);
+	_delay_ms(2);
+	PORTC &= ~(1<<EN);
 }
 
 /*Command for setting the "cursor" on the Y-axis. 0 < y < 63*/
